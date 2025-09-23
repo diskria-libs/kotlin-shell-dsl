@@ -1,14 +1,14 @@
-package io.github.diskria.dsl.shell
+package io.github.diskria.kotlin.shell.dsl
 
-import io.github.diskria.dsl.regex.combinators.RegexBetween
-import io.github.diskria.dsl.regex.combinators.RegexOr
-import io.github.diskria.dsl.regex.extensions.findAll
-import io.github.diskria.dsl.regex.primitives.RegexCharacterClass
-import io.github.diskria.dsl.regex.primitives.RegexWhitespace
-import io.github.diskria.utils.kotlin.Constants
-import io.github.diskria.utils.kotlin.extensions.*
-import io.github.diskria.utils.kotlin.extensions.common.failWithInvalidValue
-import io.github.diskria.utils.kotlin.extensions.generics.modifyFirst
+import io.github.diskria.regex.dsl.combinators.RegexBetween
+import io.github.diskria.regex.dsl.combinators.RegexOr
+import io.github.diskria.regex.dsl.extensions.findAll
+import io.github.diskria.regex.dsl.primitives.RegexCharacterClass
+import io.github.diskria.regex.dsl.primitives.RegexWhitespace
+import io.github.diskria.kotlin.utils.Constants
+import io.github.diskria.kotlin.utils.extensions.*
+import io.github.diskria.kotlin.utils.extensions.common.failWithInvalidValue
+import io.github.diskria.kotlin.utils.extensions.generics.modifyFirst
 import java.io.File
 
 open class Shell protected constructor(private var workingDirectory: File) {
@@ -46,7 +46,7 @@ open class Shell protected constructor(private var workingDirectory: File) {
         val executable = arguments.firstOrNull() ?: failWithInvalidValue(command)
 
         if (workingDirectory.resolve(executable).asFileOrNull()?.canExecute() == true) {
-            arguments.modifyFirst { Constants.File.CURRENT_DIRECTORY + it }
+            arguments.modifyFirst { Constants.File.Path.CURRENT_DIRECTORY + it }
         }
 
         return ProcessBuilder(arguments)
@@ -75,10 +75,10 @@ open class Shell protected constructor(private var workingDirectory: File) {
             ).oneOrMore().toRegex()
         }
 
-        fun open(workingDirectoryPath: String = Constants.File.CURRENT_DIRECTORY): Shell =
-            Shell(workingDirectoryPath.toFile().asFileOrThrow())
+        fun open(workingDirectoryPath: String = Constants.File.Path.CURRENT_DIRECTORY): Shell =
+            Shell(workingDirectoryPath.toFile().asFile())
 
         fun open(workingDirectory: File): Shell =
-            Shell(workingDirectory.asDirectoryOrThrow())
+            Shell(workingDirectory.asDirectory())
     }
 }

@@ -1,6 +1,6 @@
-package io.github.diskria.dsl.shell
+package io.github.diskria.kotlin.shell.dsl
 
-import io.github.diskria.utils.kotlin.Constants
+import io.github.diskria.kotlin.utils.Constants
 import java.io.File
 
 open class VCSShell protected constructor(

@@ -1,11 +1,11 @@
-package io.github.diskria.dsl.shell
+package io.github.diskria.kotlin.shell.dsl
 
-import io.github.diskria.utils.kotlin.Constants
-import io.github.diskria.utils.kotlin.extensions.asDirectoryOrThrow
-import io.github.diskria.utils.kotlin.extensions.common.modifyIf
-import io.github.diskria.utils.kotlin.extensions.generics.joinBySpace
-import io.github.diskria.utils.kotlin.extensions.toFile
-import io.github.diskria.utils.kotlin.extensions.wrapWithDoubleQuote
+import io.github.diskria.kotlin.utils.Constants
+import io.github.diskria.kotlin.utils.extensions.asDirectory
+import io.github.diskria.kotlin.utils.extensions.common.modifyIf
+import io.github.diskria.kotlin.utils.extensions.generics.joinBySpace
+import io.github.diskria.kotlin.utils.extensions.toFile
+import io.github.diskria.kotlin.utils.extensions.wrapWithDoubleQuote
 import java.io.File
 
 class GitShell private constructor(projectDirectory: File) : VCSShell(GIT_NAME, projectDirectory) {
@@ -101,6 +101,6 @@ class GitShell private constructor(projectDirectory: File) : VCSShell(GIT_NAME, 
         const val HEAD = "HEAD"
 
         fun open(gitProjectDirectory: File): GitShell =
-            GitShell(gitProjectDirectory.asDirectoryOrThrow())
+            GitShell(gitProjectDirectory.asDirectory())
     }
 }

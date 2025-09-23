@@ -1,8 +1,8 @@
-package io.github.diskria.dsl.shell
+package io.github.diskria.kotlin.shell.dsl
 
 import com.android.build.gradle.AppExtension
-import io.github.diskria.dsl.regex.primitives.RegexWhitespace
-import io.github.diskria.utils.kotlin.extensions.splitToPairOrNull
+import io.github.diskria.regex.dsl.primitives.RegexWhitespace
+import io.github.diskria.kotlin.utils.extensions.splitToPairOrNull
 import java.io.File
 
 class AndroidSdkShell private constructor(

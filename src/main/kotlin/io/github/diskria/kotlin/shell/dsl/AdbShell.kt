@@ -1,13 +1,13 @@
-package io.github.diskria.dsl.shell
+package io.github.diskria.kotlin.shell.dsl
 
-import io.github.diskria.utils.kotlin.Constants
-import io.github.diskria.utils.kotlin.extensions.generics.joinBySpace
-import io.github.diskria.utils.kotlin.extensions.skipUntilAfter
-import io.github.diskria.utils.kotlin.extensions.toFile
+import io.github.diskria.kotlin.utils.Constants
+import io.github.diskria.kotlin.utils.extensions.generics.joinBySpace
+import io.github.diskria.kotlin.utils.extensions.skipUntilAfter
+import io.github.diskria.kotlin.utils.extensions.toFile
 
 class AdbShell private constructor(
     deviceId: String
-) : Shell(Constants.File.ROOT_DIRECTORY.toFile()) {
+) : Shell(Constants.File.Path.ROOT_DIRECTORY.toFile()) {
 
     val activityManager: ActivityManager by lazy { ActivityManager() }
     val packageManager: PackageManager by lazy { PackageManager() }
