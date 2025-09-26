@@ -3,7 +3,7 @@ projektor = "1.+"
 
 kotlin = "2.2.0"
 kotlin-utils = "0.5.1"
-kotlin-regex-dsl = "0.2.0"
+kotlin-regex-dsl = "0.2.1"
 
 android-tools = "8.13.0"
 

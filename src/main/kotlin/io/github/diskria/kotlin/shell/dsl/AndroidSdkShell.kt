@@ -1,7 +1,7 @@
 package io.github.diskria.kotlin.shell.dsl
 
 import com.android.build.gradle.AppExtension
-import io.github.diskria.regex.dsl.primitives.RegexWhitespace
+import io.github.diskria.kotlin.regex.dsl.primitives.RegexWhitespace
 import io.github.diskria.kotlin.utils.extensions.splitToPairOrNull
 import java.io.File
 

@@ -1,10 +1,10 @@
 package io.github.diskria.kotlin.shell.dsl
 
-import io.github.diskria.regex.dsl.combinators.RegexBetween
-import io.github.diskria.regex.dsl.combinators.RegexOr
-import io.github.diskria.regex.dsl.extensions.findAll
-import io.github.diskria.regex.dsl.primitives.RegexCharacterClass
-import io.github.diskria.regex.dsl.primitives.RegexWhitespace
+import io.github.diskria.kotlin.regex.dsl.combinators.RegexBetween
+import io.github.diskria.kotlin.regex.dsl.combinators.RegexOr
+import io.github.diskria.kotlin.regex.dsl.extensions.findAll
+import io.github.diskria.kotlin.regex.dsl.primitives.RegexCharacterClass
+import io.github.diskria.kotlin.regex.dsl.primitives.RegexWhitespace
 import io.github.diskria.kotlin.utils.Constants
 import io.github.diskria.kotlin.utils.extensions.*
 import io.github.diskria.kotlin.utils.extensions.common.failWithInvalidValue
