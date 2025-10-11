@@ -1,11 +1,11 @@
-import io.github.diskria.projektor.extensions.configureLibrary
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import io.github.diskria.projektor.publishing.MavenCentral
 
 plugins {
     `maven-publish`
     signing
-    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.projektor)
+    alias(libs.plugins.build.config)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 dependencies {
@@ -17,4 +17,8 @@ dependencies {
     compileOnly(libs.android.tools)
 }
 
-configureLibrary(jvmTarget = JvmTarget.JVM_11)
+projekt {
+    publishingTarget = MavenCentral
+
+    kotlinLibrary()
+}
