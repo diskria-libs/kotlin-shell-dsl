@@ -14,7 +14,7 @@ plugins {
 
 projekt {
     description = "A Kotlin DSL for working with shell commands, Git, Android SDK tools, and ADB devices."
-    version = "0.3.1"
+    version = "0.3.2"
     license = MIT
     tags = setOf("shell", "dsl")
 

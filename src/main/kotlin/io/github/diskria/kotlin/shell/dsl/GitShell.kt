@@ -17,6 +17,11 @@ class GitShell private constructor(projectDirectory: File) : VCSShell(GIT_NAME, 
         execute("clone $remoteUrl $targetDirectory")
     }
 
+    fun configureUser(name: String, email: String, isGlobal: Boolean = false) {
+        setConfig("user.name", name, isGlobal)
+        setConfig("user.email", email, isGlobal)
+    }
+
     fun fetch(remoteName: String = ORIGIN_REMOTE_NAME) {
         execute("fetch $remoteName")
     }
@@ -90,6 +95,18 @@ class GitShell private constructor(projectDirectory: File) : VCSShell(GIT_NAME, 
     fun hardResetToRemoteBranch(remoteName: String, branchName: String) {
         execute("reset --hard $remoteName/$branchName")
         execute("clean -fd")
+    }
+
+    private fun setConfig(key: String, value: String, isGlobal: Boolean = false) {
+        execute(buildString {
+            append("config ")
+            if (isGlobal) {
+                append("--global ")
+            }
+            append(key)
+            append(" ")
+            append(value.wrapWithDoubleQuote())
+        })
     }
 
     companion object {
