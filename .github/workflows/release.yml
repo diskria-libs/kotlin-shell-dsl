@@ -37,7 +37,7 @@ jobs:
 
       - name: Create bundle
         run: |
-          cd build/staging-repo
+          cd build/localMaven
           zip -r "../${{ steps.jar.outputs.basename }}.zip" .
 
       - name: Upload bundle to Sonatype Central

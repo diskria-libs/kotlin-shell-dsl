@@ -1,4 +1,4 @@
-import io.github.diskria.projektor.publishing.MavenCentral
+import io.github.diskria.projektor.publishing.maven.MavenCentral
 
 plugins {
     `maven-publish`
