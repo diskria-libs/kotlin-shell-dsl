@@ -48,11 +48,18 @@ open class Shell protected constructor(private var workingDirectory: File) {
         if (workingDirectory.resolve(executable).asFileOrNull()?.canExecute() == true) {
             arguments.modifyFirst { Constants.File.Path.CURRENT_DIRECTORY + it }
         }
-
+        println("command: $command")
+        println("arguments: $arguments")
+        println("workingDirectory: $workingDirectory")
         return ProcessBuilder(arguments)
             .directory(workingDirectory)
             .redirectErrorStream(true)
             .start()
+            .also {
+                it.inputStream.bufferedReader().useLines { lines ->
+                    lines.forEach { println(it) }
+                }
+            }
     }
 
     private fun splitToArguments(command: String): List<String> =
