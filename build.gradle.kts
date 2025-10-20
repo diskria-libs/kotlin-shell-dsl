@@ -1,5 +1,3 @@
-import io.github.diskria.projektor.publishing.maven.MavenCentral
-
 plugins {
     `maven-publish`
     signing
@@ -18,7 +16,5 @@ dependencies {
 }
 
 projekt {
-    publishingTarget = MavenCentral
-
     kotlinLibrary()
 }
