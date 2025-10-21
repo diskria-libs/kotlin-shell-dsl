@@ -14,11 +14,10 @@ import java.util.logging.Logger
 
 open class Shell protected constructor(private var workingDirectory: File) {
 
-    private val logger: Logger = Logger.getLogger(Shell::class.java.name)
     private var previousDirectory: File? = null
 
     fun cd(directory: File): Shell {
-        logger.info("Changing directory: ${workingDirectory.absolutePath} -> ${directory.absolutePath}")
+        println("Changing directory: ${workingDirectory.absolutePath} -> ${directory.absolutePath}")
         previousDirectory = workingDirectory
         workingDirectory = directory
         return this
@@ -26,7 +25,7 @@ open class Shell protected constructor(private var workingDirectory: File) {
 
     fun undoCd(): Shell {
         previousDirectory?.let {
-            logger.info("Reverting directory: ${workingDirectory.absolutePath} -> ${it.absolutePath}")
+            println("Reverting directory: ${workingDirectory.absolutePath} -> ${it.absolutePath}")
             workingDirectory = it
             previousDirectory = null
         }
@@ -43,7 +42,7 @@ open class Shell protected constructor(private var workingDirectory: File) {
         val process = startProcess(command)
         val exitCode = process.waitFor()
         val output = process.inputStream.bufferedReader().readText().trim()
-        logger.info("Command finished with exitCode=$exitCode, output:\n$output")
+        println("Command finished with exitCode=$exitCode, output:\n$output")
         return exitCode
     }
 
@@ -51,7 +50,7 @@ open class Shell protected constructor(private var workingDirectory: File) {
         val process = startProcess(command)
         val output = process.inputStream.bufferedReader().readText().trim()
         val exitCode = process.waitFor()
-        logger.info("Command output captured (exitCode=$exitCode):\n$output")
+        println("Command output captured (exitCode=$exitCode):\n$output")
         return output
     }
 
@@ -59,8 +58,8 @@ open class Shell protected constructor(private var workingDirectory: File) {
         val arguments = splitToArguments(command).toMutableList()
         val executable = arguments.firstOrNull() ?: failWithInvalidValue(command)
 
-        logger.info("Executing command: ${command.wrapWithDoubleQuote()}")
-        logger.info("Parsed arguments: $arguments")
+        println("Executing command: ${command.wrapWithDoubleQuote()}")
+        println("Parsed arguments: $arguments")
 
         if (workingDirectory.resolve(executable).asFileOrNull()?.canExecute() == true) {
             arguments.modifyFirst { Constants.File.Path.CURRENT_DIRECTORY + it }
@@ -69,10 +68,10 @@ open class Shell protected constructor(private var workingDirectory: File) {
         val builder = ProcessBuilder(arguments).directory(workingDirectory).redirectErrorStream(true)
         try {
             val process = builder.start()
-            logger.info("Process started in directory: ${workingDirectory.absolutePath}")
+            println("Process started in directory: ${workingDirectory.absolutePath}")
             return process
         } catch (exception: Exception) {
-            logger.severe("Failed to start process: ${exception.message}")
+            println("Failed to start process: ${exception.message}")
             throw exception
         }
     }
