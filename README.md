@@ -1,9 +1,8 @@
-# Kotlin Shell DSL
+# Kotlin Shell Dsl
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.diskria/kotlin-shell-dsl.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.diskria/kotlin-shell-dsl) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+A Kotlin DSL for working with shell commands, Git, Android SDK tools, and ADB devices.
 
-A Kotlin DSL for working with shell commands, Git, Android SDK tools, and ADB devices.  
-Provides type-safe wrappers and helper utilities for common CLI workflows directly from Kotlin code.
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.diskria/kotlin-shell-dsl.svg?label=Maven+Central&style=for-the-badge)](https://central.sonatype.com/artifact/io.github.diskria/kotlin-shell-dsl) [![License: MIT](https://img.shields.io/static/v1?message=MIT&color=yellow&label=License&style=for-the-badge)](https://spdx.org/licenses/MIT)
 
 ---
 
@@ -23,5 +22,6 @@ implementation("io.github.diskria:kotlin-shell-dsl:LATEST")
 
 ---
 
-## 📄 License
-This project is licensed under the [MIT License](LICENSE).
+## License
+
+This project is licensed under the [MIT License](https://spdx.org/licenses/MIT).
