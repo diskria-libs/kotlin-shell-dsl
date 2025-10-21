@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     alias(libs.plugins.projektor)
     alias(libs.plugins.kotlin.jvm)
@@ -15,7 +13,5 @@ dependencies {
 }
 
 projekt {
-    kotlinLibrary {
-        jvmTarget = JvmTarget.JVM_11
-    }
+    kotlinLibrary()
 }
