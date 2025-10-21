@@ -1,16 +1,14 @@
 [versions]
 projektor = "3.+"
-build-config = "5.7.0"
 
 kotlin = "2.2.20"
-kotlin-utils = "0.6.0"
-kotlin-regex-dsl = "0.3.0"
+kotlin-utils = "0.7.0"
+kotlin-regex-dsl = "0.4.0"
 
 android-tools = "8.13.0"
 
 [plugins]
 projektor = { id = "io.github.diskria.projektor", version.ref = "projektor" }
-build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "build-config" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 
 [libraries]

@@ -1,5 +1,6 @@
-package io.github.diskria.kotlin.shell.dsl
+package io.github.diskria.kotlin.shell.dsl.android
 
+import io.github.diskria.kotlin.shell.dsl.common.Shell
 import io.github.diskria.kotlin.utils.Constants
 import io.github.diskria.kotlin.utils.extensions.generics.joinBySpace
 import io.github.diskria.kotlin.utils.extensions.skipUntilAfter

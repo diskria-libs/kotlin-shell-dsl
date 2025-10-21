@@ -1,8 +1,7 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    `maven-publish`
-    signing
     alias(libs.plugins.projektor)
-    alias(libs.plugins.build.config)
     alias(libs.plugins.kotlin.jvm)
 }
 
@@ -16,5 +15,7 @@ dependencies {
 }
 
 projekt {
-    kotlinLibrary()
+    kotlinLibrary {
+        jvmTarget = JvmTarget.JVM_11
+    }
 }
