@@ -9,7 +9,7 @@ import io.github.diskria.kotlin.utils.extensions.toFile
 import io.github.diskria.kotlin.utils.extensions.wrapWithDoubleQuote
 import java.io.File
 
-class GitShell private constructor(projectDirectory: File) : Shell(projectDirectory) {
+class GitShell private constructor(repoDirectory: File) : Shell(repoDirectory) {
 
     fun configureUser(name: String, email: String, isGlobal: Boolean = false) {
         configure("user.name", name, isGlobal)
@@ -141,7 +141,7 @@ class GitShell private constructor(projectDirectory: File) : Shell(projectDirect
         const val UPSTREAM_REMOTE_NAME = "upstream"
         const val HEAD = "HEAD"
 
-        fun open(gitProjectDirectory: File): GitShell =
-            GitShell(gitProjectDirectory.asDirectory())
+        fun open(repoDirectory: File): GitShell =
+            GitShell(repoDirectory.asDirectory())
     }
 }
