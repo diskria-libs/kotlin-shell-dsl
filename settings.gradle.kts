@@ -10,14 +10,14 @@ pluginManagement {
 }
 
 plugins {
-    id("io.github.diskria.projektor.settings") version "3.+"
+    id("io.github.diskria.projektor.settings") version "4.+"
 }
 
 projekt {
-    version = "0.4.2"
+    version = "0.4.3"
     license = MIT
     publish = setOf(MAVEN_CENTRAL)
 
     kotlinLibrary()
-    AndroidLibraryConfigurator.applyRepositories(settings)
+    AndroidLibraryConfigurator.applyMainRepositories(settings)
 }
