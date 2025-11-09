@@ -2,8 +2,8 @@
 projektor = "4.+"
 
 kotlin = "2.0.21"
-kotlin-utils = "0.8.0"
-kotlin-regex-dsl = "0.8.0"
+kotlin-utils = "0.8.2"
+kotlin-regex-dsl = "0.8.2"
 
 android-tools = "8.13.0"
 
@@ -14,4 +14,5 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 [libraries]
 kotlin-utils = { group = "io.github.diskria", name = "kotlin-utils", version.ref = "kotlin-utils" }
 kotlin-regex-dsl = { group = "io.github.diskria", name = "kotlin-regex-dsl", version.ref = "kotlin-regex-dsl" }
+
 android-tools = { group = "com.android.tools.build", name = "gradle", version.ref = "android-tools" }

@@ -1,3 +1,4 @@
+import io.github.diskria.gradle.utils.extensions.getCatalogVersion
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -6,16 +7,24 @@ plugins {
 }
 
 dependencies {
+    compileOnly(gradleKotlinDsl())
+    compileOnly(libs.android.tools)
+
     implementation(libs.kotlin.utils)
     implementation(libs.kotlin.regex.dsl)
-
-    implementation(gradleApi())
-
-    compileOnly(libs.android.tools)
 }
 
 projekt {
     kotlinLibrary {
         jvmTarget = JvmTarget.JVM_21
+    }
+}
+
+val kotlinVersion = getCatalogVersion("kotlin")
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion(kotlinVersion)
+        }
     }
 }
